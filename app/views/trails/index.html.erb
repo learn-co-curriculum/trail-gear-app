@@ -1,0 +1,4 @@
+<%= link_to "Add Trail", new_trail_path %>
+<% @trails.each do |trail| %>
+    <h2><%= trail.title %> | difficulty: <%= trail.difficulty %></h2>
+<% end %>

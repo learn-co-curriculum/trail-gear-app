@@ -1,0 +1,40 @@
+<form action="/trails" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <div>
+        <label for="trail_title">Title</label>
+        <div>
+            <input type="text" name="trail[title]" placeholder="title" />
+        </div>
+    </div>
+     <div>
+        <label for="trail_description">Description</label>
+        <div>
+            <textarea name="trail[description]" placeholder="description"></textarea>
+        </div>
+    </div>
+     <div>
+        <label for="trail_image_url">Image URL</label>
+        <div>
+            <input type="text" name="trail[image_url]" placeholder="image url" />
+        </div>
+    </div>
+     <div>
+        <label for="trail_length">Length</label>
+        <div>
+            <input type="text" name="trail[length]" placeholder="length" />
+        </div>
+    </div>
+    <div>
+        <label for="trail_difficulty">Difficulty</label>
+        <div>
+            <select name="trail[difficulty]"> <!--Supplement an id here instead of using 'name'-->
+                <% Trail.difficulties.each do |key, value| %>
+                    <option value="<%= value %>"><%= key %></option>
+                <% end %>
+            </select>
+        </div>
+    </div>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>
