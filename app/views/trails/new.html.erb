@@ -35,6 +35,21 @@
         </div>
     </div>
     <div>
+        <label for="trail_gear">Hiking Gear:</label>
+        <div>
+            <% @gear.each do |gear| %>
+                <label for="trail_gear"><%= gear.title %></label>
+                <input type="checkbox" value="<%= gear.id %>" name="trail[gear_ids][]" />
+            <% end %>
+        </div>
+    </div>
+    <div>
+        <label for="trail_gear_title">Create New Gear:</label>
+        <div>
+            <input type="text" name="trail[gear][title]" />
+        </div>
+    </div>
+    <div>
         <button type="submit">Create</button>
     </div>
 </form>

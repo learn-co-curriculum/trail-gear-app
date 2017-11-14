@@ -5,6 +5,7 @@ class TrailsController < ApplicationController
     end
 
     def new
+        @gear = Gear.all
     end
 
     def create
@@ -19,6 +20,7 @@ class TrailsController < ApplicationController
     private
 
     def trail_params
-        params.require(:trail).permit(:title, :description, :image_url, :length, :difficulty)
+        params.require(:trail).permit(:title, :description, :image_url, :length, :difficulty, gear_ids: [], gear: [:title])
     end
+
 end

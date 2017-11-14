@@ -1,4 +1,16 @@
 <%= link_to "Add Trail", new_trail_path %>
 <% @trails.each do |trail| %>
-    <h2><%= trail.title %> | difficulty: <%= trail.difficulty %></h2>
+    <div style="width: 350px; border: solid 1px black; padding: 16px; margin: 16px;">
+        <h2><%= trail.title %> | difficulty: <%= trail.difficulty %></h2>
+        <p><%= trail.description %></p>
+        <img style="width: 250px;" src="<%= trail.image_url %>" />
+        <% if trail.gear.count > 0 %>
+            <p>Hiking Gear Needed:</p>
+            <ol>
+                <% trail.gear.each do |gear| %>
+                    <li><%= gear.title %></li>
+                <% end %>
+            </ol>
+        <% end %>
+    </div>
 <% end %>
